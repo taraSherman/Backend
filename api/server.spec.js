@@ -8,7 +8,7 @@ describe('Test suite: register and login', () => {
   });
 
   it('adds a user, returns JSON object', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/register')
       .send({
         "username": "testuser",
@@ -26,7 +26,7 @@ describe('Test suite: register and login', () => {
   });
 
   it('should log in and return a token', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({
         username: "testuser",
@@ -40,7 +40,7 @@ describe('Test suite: register and login', () => {
   });
 
   it('should verify user is logged in and get a list of all students', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({
         username: "testuser",
@@ -53,11 +53,12 @@ describe('Test suite: register and login', () => {
           expect(res.status).toBe(200)
           expect(res.type).toBe('application/json')
           expect([res.body]).toBeArray()
+          console.log("test body", res.body);
         })
   });
 
   it('should verify user is logged in and get all data of an individual student', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({
         username: "testuser",
@@ -74,7 +75,7 @@ describe('Test suite: register and login', () => {
   });
 
   it('should verify user is logged in and then delete a student', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({
         username: "testuser",
@@ -91,7 +92,7 @@ describe('Test suite: register and login', () => {
   });
 
   it('should verify user is logged in and then add a student', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({
         username: "testuser",
@@ -123,7 +124,7 @@ describe('Test suite: register and login', () => {
   });
 
   it('should verify user is logged in and then update student data', async () => {
-    return res = await request(server)
+    const res = await request(server)
       .post('/api/auth/login')
       .send({
         username: "testuser",
